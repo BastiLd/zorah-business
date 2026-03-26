@@ -636,7 +636,7 @@ textarea {
 }
 
 .footer-hill {
-  bottom: 0;
+  bottom: -18px;
   height: 155px;
   border-radius: 55% 55% 0 0;
   transform-origin: center bottom;
