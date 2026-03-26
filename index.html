@@ -40,7 +40,7 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <p class="eyebrow">Australian-owned lead generation</p>
-          <h1>Verified leads without the usual upfront marketing risk.</h1>
+          <h1 class="wiggle-text">Verified leads without the usual upfront marketing risk.</h1>
           <p class="hero-text">
             Zorah helps Australian businesses access verified leads across industries with a simple
             pay-per-lead model. You pay for delivered opportunities, not heavy retainers or vague
@@ -268,6 +268,30 @@
   </footer>
 
   <script>
+    const prepareWiggleText = () => {
+      document.querySelectorAll(".wiggle-text").forEach((heading) => {
+        if (heading.dataset.wiggleReady === "true") {
+          return;
+        }
+
+        const text = heading.textContent || "";
+        heading.dataset.wiggleReady = "true";
+        heading.setAttribute("aria-label", text);
+        heading.textContent = "";
+
+        Array.from(text).forEach((character, index) => {
+          const span = document.createElement("span");
+          span.className = "wiggle-char";
+          span.style.setProperty("--wiggle-delay", `${index * 0.022}s`);
+          span.setAttribute("aria-hidden", "true");
+          span.textContent = character === " " ? "\u00A0" : character;
+          heading.appendChild(span);
+        });
+      });
+    };
+
+    prepareWiggleText();
+
     const toggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector(".nav");
 

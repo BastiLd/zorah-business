@@ -87,6 +87,13 @@ textarea {
   font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: -0.03em;
+  transition: transform 0.28s ease, color 0.28s ease;
+}
+
+.logo:hover,
+.logo:focus-visible {
+  transform: rotate(-2deg) scale(1.03);
+  color: var(--primary-dark);
 }
 
 .nav {
@@ -99,6 +106,28 @@ textarea {
   color: var(--muted);
   font-size: 0.95rem;
   transition: color 0.2s ease;
+}
+
+.nav a:not(.btn) {
+  position: relative;
+}
+
+.nav a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2rem;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s ease;
+}
+
+.nav a:not(.btn):hover::after,
+.nav a:not(.btn):focus-visible::after {
+  transform: scaleX(1);
 }
 
 .nav a:hover,
@@ -177,6 +206,16 @@ textarea {
   color: #ffffff;
 }
 
+.hero-actions .btn:not(.btn-secondary),
+.nav .nav-cta {
+  animation: buttonBreathe 4.8s ease-in-out infinite;
+}
+
+.hero-actions .btn:not(.btn-secondary):nth-child(2),
+.center-actions .btn:not(.btn-secondary) {
+  animation-delay: 0.8s;
+}
+
 .hero,
 .contact-hero {
   padding: 6rem 0 4rem;
@@ -218,6 +257,16 @@ textarea {
 .contact-copy h1 {
   font-size: clamp(2.7rem, 6vw, 4.8rem);
   max-width: 11ch;
+}
+
+.wiggle-text .wiggle-char {
+  display: inline-block;
+  will-change: transform;
+}
+
+.wiggle-text:hover .wiggle-char,
+.wiggle-text:focus-visible .wiggle-char {
+  animation: charWobble 0.9s ease-out var(--wiggle-delay) 1;
 }
 
 .section h2,
@@ -408,6 +457,10 @@ textarea {
 .marquee-card {
   width: min(24rem, 78vw);
   flex: 0 0 auto;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 .enquiry-preview-grid,
@@ -693,6 +746,45 @@ textarea {
   }
 }
 
+@keyframes buttonBreathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 rgba(245, 136, 0, 0);
+  }
+
+  50% {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 16px 28px rgba(245, 136, 0, 0.18);
+  }
+}
+
+@keyframes charWobble {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  18% {
+    transform: translate3d(-1px, -2px, 0) rotate(-7deg);
+  }
+
+  36% {
+    transform: translate3d(2px, 1px, 0) rotate(7deg);
+  }
+
+  54% {
+    transform: translate3d(-1px, 0, 0) rotate(-5deg);
+  }
+
+  72% {
+    transform: translate3d(1px, -1px, 0) rotate(3deg);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
 @keyframes reviewLoop {
   from {
     transform: translateX(0);
@@ -706,45 +798,45 @@ textarea {
 @keyframes hillPulseLeft {
   0%,
   100% {
-    transform: translateY(0) scaleY(1);
+    transform: scaleY(1);
   }
 
   45% {
-    transform: translateY(-18px) scaleY(1.08);
+    transform: scaleY(1.14);
   }
 
   70% {
-    transform: translateY(8px) scaleY(0.94);
+    transform: scaleY(0.92);
   }
 }
 
 @keyframes hillPulseMid {
   0%,
   100% {
-    transform: translateY(6px) scaleY(0.96);
+    transform: scaleY(0.96);
   }
 
   35% {
-    transform: translateY(-24px) scaleY(1.12);
+    transform: scaleY(1.18);
   }
 
   68% {
-    transform: translateY(4px) scaleY(0.98);
+    transform: scaleY(0.94);
   }
 }
 
 @keyframes hillPulseRight {
   0%,
   100% {
-    transform: translateY(4px) scaleY(0.97);
+    transform: scaleY(0.97);
   }
 
   40% {
-    transform: translateY(-20px) scaleY(1.1);
+    transform: scaleY(1.16);
   }
 
   72% {
-    transform: translateY(10px) scaleY(0.92);
+    transform: scaleY(0.9);
   }
 }
 
