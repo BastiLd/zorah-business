@@ -195,7 +195,7 @@
           return;
         }
 
-        const text = heading.textContent || "";
+        const text = (heading.textContent || "").trim().replace(/\s+/g, " ");
         const enableColor = heading.dataset.enableColor === "true";
 
         heading.dataset.coolorsReady = "true";
