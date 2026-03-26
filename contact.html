@@ -40,7 +40,9 @@
       <div class="container contact-grid">
         <div class="contact-copy">
           <p class="eyebrow">Dedicated contact page</p>
-          <h1>Tell Zorah what kind of leads your business needs.</h1>
+          <h1 class="coolors-text" data-enable-color="false">
+            Tell Zorah what kind of leads your business needs.
+          </h1>
           <p>
             This page keeps the enquiry route in one place. You can see the upcoming HubSpot form
             structure, review what information is useful, and use email right away for direct
@@ -185,6 +187,73 @@
   </footer>
 
   <script>
+    const palette = ["#051821", "#1a4645", "#266867", "#f58800", "#fbbc24"];
+
+    const prepareCoolorsText = () => {
+      document.querySelectorAll(".coolors-text").forEach((heading) => {
+        if (heading.dataset.coolorsReady === "true") {
+          return;
+        }
+
+        const text = heading.textContent || "";
+        const enableColor = heading.dataset.enableColor === "true";
+
+        heading.dataset.coolorsReady = "true";
+        heading.setAttribute("aria-label", text);
+        heading.textContent = "";
+
+        text.split(" ").forEach((word, wordIndex, words) => {
+          const wordSpan = document.createElement("span");
+          wordSpan.className = "coolors-word";
+          wordSpan.setAttribute("aria-hidden", "true");
+
+          Array.from(word).forEach((character) => {
+            const span = document.createElement("span");
+            span.className = "coolors-char";
+            span.setAttribute("aria-hidden", "true");
+            span.textContent = character;
+            wordSpan.appendChild(span);
+          });
+
+          heading.appendChild(wordSpan);
+
+          if (wordIndex < words.length - 1) {
+            heading.appendChild(document.createTextNode(" "));
+          }
+        });
+
+        heading.addEventListener("pointerover", (event) => {
+          const character = event.target.closest(".coolors-char");
+          if (!character) {
+            return;
+          }
+
+          character.classList.remove("is-active");
+          void character.offsetWidth;
+          character.classList.add("is-active");
+
+          if (enableColor) {
+            const randomColor = palette[Math.floor(Math.random() * palette.length)];
+            character.style.color = randomColor;
+          }
+        });
+
+        heading.addEventListener("animationend", (event) => {
+          const character = event.target.closest(".coolors-char");
+          if (!character) {
+            return;
+          }
+
+          character.classList.remove("is-active");
+          if (enableColor) {
+            character.style.removeProperty("color");
+          }
+        });
+      });
+    };
+
+    prepareCoolorsText();
+
     const toggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector(".nav");
 
