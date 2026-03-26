@@ -234,6 +234,8 @@
       <span class="footer-cloud footer-cloud-a"></span>
       <span class="footer-cloud footer-cloud-b"></span>
       <span class="footer-cloud footer-cloud-c"></span>
+      <span class="footer-cloud footer-cloud-d"></span>
+      <span class="footer-orb footer-orb-a"></span>
       <span class="footer-hill footer-hill-a"></span>
       <span class="footer-hill footer-hill-b"></span>
       <span class="footer-hill footer-hill-c"></span>
@@ -285,12 +287,24 @@
         heading.setAttribute("aria-label", text);
         heading.textContent = "";
 
-        Array.from(text).forEach((character) => {
-          const span = document.createElement("span");
-          span.className = "coolors-char";
-          span.setAttribute("aria-hidden", "true");
-          span.textContent = character === " " ? "\u00A0" : character;
-          heading.appendChild(span);
+        text.split(" ").forEach((word, wordIndex, words) => {
+          const wordSpan = document.createElement("span");
+          wordSpan.className = "coolors-word";
+          wordSpan.setAttribute("aria-hidden", "true");
+
+          Array.from(word).forEach((character) => {
+            const span = document.createElement("span");
+            span.className = "coolors-char";
+            span.setAttribute("aria-hidden", "true");
+            span.textContent = character;
+            wordSpan.appendChild(span);
+          });
+
+          heading.appendChild(wordSpan);
+
+          if (wordIndex < words.length - 1) {
+            heading.appendChild(document.createTextNode(" "));
+          }
         });
 
         heading.addEventListener("pointerover", (event) => {
