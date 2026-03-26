@@ -40,7 +40,9 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <p class="eyebrow">Australian-owned lead generation</p>
-          <h1 class="wiggle-text">Verified leads without the usual upfront marketing risk.</h1>
+          <h1 class="coolors-text" data-enable-color="false">
+            Verified leads without the usual upfront marketing risk.
+          </h1>
           <p class="hero-text">
             Zorah helps Australian businesses access verified leads across industries with a simple
             pay-per-lead model. You pay for delivered opportunities, not heavy retainers or vague
@@ -268,49 +270,60 @@
   </footer>
 
   <script>
-    const prepareWiggleText = () => {
-      document.querySelectorAll(".wiggle-text").forEach((heading) => {
-        if (heading.dataset.wiggleReady === "true") {
+    const palette = ["#051821", "#1a4645", "#266867", "#f58800", "#fbbc24"];
+
+    const prepareCoolorsText = () => {
+      document.querySelectorAll(".coolors-text").forEach((heading) => {
+        if (heading.dataset.coolorsReady === "true") {
           return;
         }
 
         const text = heading.textContent || "";
-        heading.dataset.wiggleReady = "true";
+        const enableColor = heading.dataset.enableColor === "true";
+
+        heading.dataset.coolorsReady = "true";
         heading.setAttribute("aria-label", text);
         heading.textContent = "";
 
-        Array.from(text).forEach((character, index) => {
+        Array.from(text).forEach((character) => {
           const span = document.createElement("span");
-          span.className = "wiggle-char";
-          span.style.setProperty("--wiggle-delay", `${index * 0.022}s`);
+          span.className = "coolors-char";
           span.setAttribute("aria-hidden", "true");
           span.textContent = character === " " ? "\u00A0" : character;
           heading.appendChild(span);
         });
 
-        heading.addEventListener("mouseover", (event) => {
-          const character = event.target.closest(".wiggle-char");
+        heading.addEventListener("pointerover", (event) => {
+          const character = event.target.closest(".coolors-char");
           if (!character) {
             return;
           }
 
-          character.classList.remove("is-wobbling");
+          character.classList.remove("is-active");
           void character.offsetWidth;
-          character.classList.add("is-wobbling");
+          character.classList.add("is-active");
+
+          if (enableColor) {
+            const randomColor = palette[Math.floor(Math.random() * palette.length)];
+            character.style.color = randomColor;
+          }
         });
 
         heading.addEventListener("animationend", (event) => {
-          const character = event.target.closest(".wiggle-char");
+          const character = event.target.closest(".coolors-char");
           if (!character) {
             return;
           }
 
-          character.classList.remove("is-wobbling");
+          character.classList.remove("is-active");
+          if (enableColor) {
+            character.style.removeProperty("color");
+          }
         });
       });
     };
 
-    prepareWiggleText();
+    prepareCoolorsText();
 
     const toggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector(".nav");

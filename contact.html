@@ -40,7 +40,7 @@
       <div class="container contact-grid">
         <div class="contact-copy">
           <p class="eyebrow">Dedicated contact page</p>
-          <h1 class="wiggle-text">Tell Zorah what kind of leads your business needs.</h1>
+          <h1>Tell Zorah what kind of leads your business needs.</h1>
           <p>
             This page keeps the enquiry route in one place. You can see the upcoming HubSpot form
             structure, review what information is useful, and use email right away for direct
@@ -183,50 +183,6 @@
   </footer>
 
   <script>
-    const prepareWiggleText = () => {
-      document.querySelectorAll(".wiggle-text").forEach((heading) => {
-        if (heading.dataset.wiggleReady === "true") {
-          return;
-        }
-
-        const text = heading.textContent || "";
-        heading.dataset.wiggleReady = "true";
-        heading.setAttribute("aria-label", text);
-        heading.textContent = "";
-
-        Array.from(text).forEach((character, index) => {
-          const span = document.createElement("span");
-          span.className = "wiggle-char";
-          span.style.setProperty("--wiggle-delay", `${index * 0.022}s`);
-          span.setAttribute("aria-hidden", "true");
-          span.textContent = character === " " ? "\u00A0" : character;
-          heading.appendChild(span);
-        });
-
-        heading.addEventListener("mouseover", (event) => {
-          const character = event.target.closest(".wiggle-char");
-          if (!character) {
-            return;
-          }
-
-          character.classList.remove("is-wobbling");
-          void character.offsetWidth;
-          character.classList.add("is-wobbling");
-        });
-
-        heading.addEventListener("animationend", (event) => {
-          const character = event.target.closest(".wiggle-char");
-          if (!character) {
-            return;
-          }
-
-          character.classList.remove("is-wobbling");
-        });
-      });
-    };
-
-    prepareWiggleText();
-
     const toggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector(".nav");
 
