@@ -202,6 +202,26 @@
           span.textContent = character === " " ? "\u00A0" : character;
           heading.appendChild(span);
         });
+
+        heading.addEventListener("mouseover", (event) => {
+          const character = event.target.closest(".wiggle-char");
+          if (!character) {
+            return;
+          }
+
+          character.classList.remove("is-wobbling");
+          void character.offsetWidth;
+          character.classList.add("is-wobbling");
+        });
+
+        heading.addEventListener("animationend", (event) => {
+          const character = event.target.closest(".wiggle-char");
+          if (!character) {
+            return;
+          }
+
+          character.classList.remove("is-wobbling");
+        });
       });
     };
 

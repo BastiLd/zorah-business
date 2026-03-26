@@ -262,10 +262,10 @@ textarea {
 .wiggle-text .wiggle-char {
   display: inline-block;
   will-change: transform;
+  cursor: default;
 }
 
-.wiggle-text:hover .wiggle-char,
-.wiggle-text:focus-visible .wiggle-char {
+.wiggle-text .wiggle-char.is-wobbling {
   animation: charWobble 0.9s ease-out var(--wiggle-delay) 1;
 }
 
