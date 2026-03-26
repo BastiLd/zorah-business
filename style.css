@@ -1,0 +1,292 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  color: #101828;
+  background: #f7f8fa;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.narrow {
+  width: min(760px, 100%);
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(247, 248, 250, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.nav a {
+  color: #475467;
+  font-size: 0.95rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  border: 1px solid #2563eb;
+}
+
+.btn:hover {
+  opacity: 0.92;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #101828;
+  border: 1px solid #d0d5dd;
+}
+
+.btn-sm {
+  padding: 0.65rem 1rem;
+}
+
+.hero {
+  padding: 6rem 0 4rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.eyebrow,
+.section-label {
+  color: #2563eb;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.hero h1,
+.section h2 {
+  line-height: 1.1;
+  margin: 0.5rem 0 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  max-width: 10ch;
+}
+
+.section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.hero-text {
+  max-width: 58ch;
+  color: #475467;
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.hero-card,
+.card,
+.enquiry-form {
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+}
+
+.hero-card {
+  padding: 1.5rem;
+}
+
+.hero-card h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.hero-card ul {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.section-alt {
+  background: #eef2f6;
+}
+
+.cards {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.three-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.two-col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  padding: 1.5rem;
+}
+
+.card h3 {
+  margin-top: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.step {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.quote {
+  font-size: 1.05rem;
+}
+
+.author {
+  color: #475467;
+  margin-bottom: 0;
+}
+
+.enquiry-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.enquiry-form {
+  padding: 1.5rem;
+}
+
+.enquiry-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+  width: 100%;
+  margin-top: 0.45rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  font: inherit;
+  background: #fff;
+}
+
+.final-cta {
+  padding-top: 2rem;
+}
+
+.center-actions {
+  justify-content: center;
+}
+
+.site-footer {
+  border-top: 1px solid #e4e7ec;
+  padding: 2rem 0;
+  background: #ffffff;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+.site-footer p,
+.footer-links a,
+.nav a {
+  color: #475467;
+}
+
+@media (max-width: 900px) {
+  .hero-grid,
+  .enquiry-grid,
+  .three-col,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 4rem;
+  }
+}
