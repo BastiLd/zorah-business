@@ -259,6 +259,10 @@ textarea {
   max-width: 11ch;
 }
 
+.contact-copy h1 {
+  max-width: 13.5ch;
+}
+
 .coolors-text .coolors-char {
   display: inline-block;
   will-change: transform;
@@ -995,6 +999,10 @@ textarea {
   .hero h1,
   .contact-copy h1 {
     max-width: 12ch;
+  }
+
+  .contact-copy h1 {
+    max-width: 14ch;
   }
 
   .section,
