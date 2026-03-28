@@ -23,6 +23,7 @@ img{
 
 .hero{
   padding: 100px 0;
+}
 
 .header-inner, .hero-inner, .about-inner, .footer-inner{
   width: 90%;
@@ -32,8 +33,6 @@ img{
 
 .hero-inner{
   max-width: 900px;
-  margin-left: 20px;
-  margin-right: 20px;
   text-align: center;
 }
 
@@ -45,15 +44,32 @@ img{
 
 .hero-intro{
   font-size: 12px;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
 .hero-cta{
   display: flex;
-  jutify-content: center;
+  justify-content: center;
   gap: 10px;
   margin-top: 10px;
+}
+
+.hero-cta-1{
+  display: inline-block;
+  padding: 20px 0;
+  border-radius: /*placeh*/;
+  font-weight: 600;
+  background-color: #b15800;
+  color: #fff;
+}
+
+.hero-cta-2{
+  display: inline-block;
+  padding: 20px 0;
+  border-radius: /*placeh*/;
+  font-weight: 600;
+  border-color: #b15800; /*???*/
 }
 
 .site-header{
@@ -72,7 +88,7 @@ img{
   font-size: 20px;
 }
 
-.hero, .about{
+.about{
   padding: 80px 0;
 }
 
