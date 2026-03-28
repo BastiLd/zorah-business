@@ -131,9 +131,40 @@ img{
 
 .footer{
   padding-top: 20px;
-  background-color: #b15800;
+  background-color: #ff962e;
 }
 
-.footer-inner{
+.footer-brand{
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 25%
 }
 
+.footer-company{
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 25%
+}
+
+.footer-contact{
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 25%
+}
+
+.footer-legal{
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 25%
+}
+
+.footer-bottom{
+  margin-top: 20px;
+  paddint-top: 20px;
+  border-top: 1px solid #000;
+}
+
+.footer-inner h3{
+  padding-bottom: 15px;
+  font-weight: 800;
+}
