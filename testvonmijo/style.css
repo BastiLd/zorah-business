@@ -103,12 +103,11 @@ img{
 .about-inner{
   background-color: white;
   padding: 30px 30px;
+  margin: 0 auto;
   border: 1px solid #d3d3d3;
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   max-width: 900px;
-  font-size: 18px;
-  
 }
 
 .about-inner h2{
