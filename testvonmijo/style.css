@@ -46,7 +46,7 @@ img{
 .hero-intro{
   font-size: 12px;
   padding-bottom: 10px;
-  font-weight: bold; /*?????*/
+  font-weight: bold;
 }
 
 .hero-cta{
@@ -68,7 +68,7 @@ img{
 }
 
 .logo{
-  font-weight: 3;
+  font-weight: 600;
   font-size: 20px;
 }
 
