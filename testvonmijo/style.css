@@ -58,7 +58,8 @@ img{
 .hero-cta-1{
   display: inline-block;
   padding: 20px 0;
-  border-radius: /*placeh*/;
+  border: 2px solid;
+  border-radius: 25px;
   font-weight: 600;
   background-color: #b15800;
   color: #fff;
@@ -67,9 +68,9 @@ img{
 .hero-cta-2{
   display: inline-block;
   padding: 20px 0;
-  border-radius: /*placeh*/;
+  border: 2px solid #b15800;
+  border-radius: 25px;
   font-weight: 600;
-  border-color: #b15800; /*???*/
 }
 
 .site-header{
